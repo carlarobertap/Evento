@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Evento.Views.ContratacaoEvento"
+             Title="ContratacaoEvento"
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundColor="{StaticResource Verdinho }">
+    
+    <VerticalStackLayout VerticalOptions="CenterAndExpand" 
+                         Padding="10">
+
+        <Label Text=" Cálculo do Evento" 
+               FontFamily="Kalam"
+               FontSize="40"
+               TextColor="{StaticResource  Magenta}"
+               HorizontalOptions="Center"/>
+
+        <Frame Padding="10">
+            
+            
+            
+            <VerticalStackLayout>
+                
+                        
+                                  
+                    <Grid RowDefinitions="Auto, Auto, Auto"
+                           ColumnDefinitions="2*, *, 2*">
+
+                    <Label Grid.Row="0" Grid.Column="0"
+                           Text="Nome do Evento:" 
+                           Padding="11"/>
+                        
+
+                    <Label Grid.Row="0" Grid.Column="1"
+                       TextColor="{StaticResource  PrimaryDark}"
+                       Text="{Binding Value}" />
+
+
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Text="Adultos:" />
+
+                    <Label Grid.Row="1" Grid.Column="1"
+                           TextColor="{StaticResource  PrimaryDark}"
+                           Text="{Binding Value}" 
+                           BindingContext="{x:Reference stp_adultos}"/>
+
+                    <Stepper Grid.Row="1" Grid.Column="2"
+                              x:Name="stp_adultos"
+                              Minimum="0"
+                              Maximum="10"
+                              Increment="1" />
+
+                    <Label Grid.Row="2" Grid.Column="0"
+                           Text="Crianças:" />
+
+                    <Label Grid.Row="2" Grid.Column="1"
+                           TextColor="{StaticResource  PrimaryDark}"
+                           Text="{Binding Value}" 
+                           BindingContext="{x:Reference stp_criancas}"/>
+
+                    <Stepper Grid.Row="2" Grid.Column="2"
+                              x:Name="stp_criancas"
+                              Minimum="0"
+                              Maximum="10"
+                              Increment="1" />
+                    
+                </Grid>
+
+               
+
+                <Picker x:Name="pck_local"
+                        Title="Selecione o Local do Evento" />
+
+
+                <Frame Padding="10"
+                       Margin="10">
+
+                    <VerticalStackLayout>
+
+                        <Label Text= "Período do Evento:" 
+                               Padding="10"/>
+
+                        <HorizontalStackLayout>
+                            <Label Text="Início:" />
+                            <DatePicker x:Name="dtpck_inicio" 
+                                        Format= "dd/MM/yyy" />
+                        </HorizontalStackLayout>
+
+                        <Label Text=""/>
+
+                        <HorizontalStackLayout>
+                            <Label Text="Fim:" />
+                            <DatePicker x:Name= "dtpck_fim" 
+                                        Format= "dd/MM/yyy" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+
+                </Frame>
+
+                <Button Text="Avançar" Clicked="Button_Clicked" />
+
+
+            </VerticalStackLayout>
+        </Frame>
+
+    </VerticalStackLayout>
+        
+</ContentPage>

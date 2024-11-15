@@ -8,7 +8,7 @@ namespace Evento
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new Views.ContratacaoEvento());
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
