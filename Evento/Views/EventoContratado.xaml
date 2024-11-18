@@ -8,17 +8,57 @@
     
     <VerticalStackLayout VerticalOptions="CenterAndExpand">
 
-        <Label Text="Salão Girassol"
+        <Label Text="{Binding LocalSelecionado.Descricao}"
                TextColor="{StaticResource Magenta}"
                FontFamily="Kalam"
                FontSize="50"
                HorizontalTextAlignment="Center"/>
         
         <Frame Margin="10">
+            <HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="    Adultos: " />
+                    <Label Text= "{Binding QntAdultos}"
+                           TextColor="{StaticResource PrimaryDark}" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout >
+                    <Label Text= "                                  Crianças: " />
+                    <Label Text= "{Binding QntCriancas}"
+                           TextColor="{StaticResource PrimaryDark}" />
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Frame Margin="10">
+            <Grid ColumnDefinitions="*, *, *"
+                  RowDefinitions="Auto, Auto">
+                <Label Grid.Row="0" Grid.Column="0" Text="Entrada:" />
+                <Label Grid.Row="0" Grid.Column="1" Text="Saída:" />
+                <Label Grid.Row="0" Grid.Column="2" Text="Qtd de Dias:" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="{Binding DataInicio, StringFormat= '{}{0:dd/MM/yyy}'}" TextColor="{StaticResource PrimaryDark}"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding DataFim, StringFormat= '{}{0:dd/MM/yyy}'}" TextColor="{StaticResource PrimaryDark}" />
+                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Dias}" TextColor="{StaticResource PrimaryDark}" HorizontalOptions="Center"/>
+                
+            </Grid>
             
         </Frame>
-                 
-        
+
+        <Frame Margin="10">
+            <HorizontalStackLayout>
+                <Label Text= "Valor Total:  "  />
+                <Label 
+                    Text= "{Binding ValorTotal, StringFormat= '{}{0:c}'}"
+                    TextColor="{StaticResource PrimaryDark}"/>                
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Button Text="Voltar" 
+                HorizontalOptions= "Center"
+                Clicked="Button_Clicked" />
+
+
 
     </VerticalStackLayout>
 </ContentPage>

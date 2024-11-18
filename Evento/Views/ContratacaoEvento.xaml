@@ -20,17 +20,11 @@
             
             
             <VerticalStackLayout>
-                
-                        
+                                        
                                   
                     <Grid RowDefinitions="Auto, Auto, Auto"
                            ColumnDefinitions="2*, *, 2*">
-
-                    <Label Grid.Row="0" Grid.Column="0"
-                           Text="Nome do Evento:" 
-                           Padding="11"/>
-                        
-
+                                    
                     <Label Grid.Row="0" Grid.Column="1"
                        TextColor="{StaticResource  PrimaryDark}"
                        Text="{Binding Value}" />
@@ -69,7 +63,8 @@
                
 
                 <Picker x:Name="pck_local"
-                        Title="Selecione o Local do Evento" />
+                        Title="Selecione o Local do Evento: " 
+                        ItemDisplayBinding="{Binding Descricao}"/>
 
 
                 <Frame Padding="10"
@@ -77,13 +72,17 @@
 
                     <VerticalStackLayout>
 
-                        <Label Text= "Período do Evento:" 
+                        <Label Text= "Período do Evento" 
+                               HorizontalOptions="Center"                             
+                               TextColor="DarkSlateBlue"
                                Padding="10"/>
 
                         <HorizontalStackLayout>
                             <Label Text="Início:" />
                             <DatePicker x:Name="dtpck_inicio" 
-                                        Format= "dd/MM/yyy" />
+                                        TextColor="{StaticResource PrimaryDark}"
+                                        Format= "dd/MM/yyy" 
+                                        DateSelected="dtpck_inicio_DateSelected"/>
                         </HorizontalStackLayout>
 
                         <Label Text=""/>
@@ -91,13 +90,15 @@
                         <HorizontalStackLayout>
                             <Label Text="Fim:" />
                             <DatePicker x:Name= "dtpck_fim" 
+                                        TextColor="{StaticResource PrimaryDark}"
                                         Format= "dd/MM/yyy" />
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
 
                 </Frame>
 
-                <Button Text="Avançar" Clicked="Button_Clicked" />
+                <Button Text="Avançar" Clicked="Button_Clicked"
+                        HorizontalOptions="Center"/>
 
 
             </VerticalStackLayout>
